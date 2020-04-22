@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/windows/servercore:ltsc2019
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 # To install different versions of PostgreSQL, 
-# please find a .exe of your choice in 
+# please find a .exe of your choice in https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 # and replace the link below (https://get.enterprisedb.com/postgresql/postgresql-9.6.10-2-windows-x64.exe)
 RUN [Net.ServicePointManager]::SecurityProtocol = 'Tls12, Tls11, Tls' ; \
     Invoke-WebRequest -UseBasicParsing -Uri 'https://get.enterprisedb.com/postgresql/postgresql-9.6.10-2-windows-x64.exe' -OutFile 'postgresql-installer.exe' ; \
@@ -10,7 +10,7 @@ RUN [Net.ServicePointManager]::SecurityProtocol = 'Tls12, Tls11, Tls' ; \
     Remove-Item postgresql-installer.exe -Force
 
 # To install different versions of PostGIS, 
-# please find a .zip of your choice in 
+# please find a .zip of your choice in http://download.osgeo.org/postgis/windows/
 # MAKE SURE VERSIONS ARE COMPATIBLE
 # and replace
 # 1 - the link below (http://download.osgeo.org/postgis/windows/pg96/postgis-bundle-pg96-3.0.1x64.zip)
